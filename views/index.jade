@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  div(class="main")
+    h1= title
+    p Welcome to my #{title} app!
+
+    form(method="post", action="/index", name="mailer")
+      input(type="text", placeholder="Name", id="name", name="name")
+      input(type="email", placeholder="Email", id="email", name="email")
+      input(type="submit", value="Submit")
+
+    if(typeof msg !== 'undefined')
+      if(!!err)
+        div(class='msgbox err') #{msg}
+      else
+        div(class='msgbox success') #{msg}
